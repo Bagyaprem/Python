@@ -87,13 +87,13 @@ def generate_financial_report(user_instance, account_instance, budget_instance):
     return report
 
 if __name__ == "__main__":
-    # Predefined user credentials
+    
     name = "Prem"
     password = "2004"
     tpin = "1234"
     accno = "6374005564"
 
-    # Create an instance of User
+   
     user_instance = User(name, password, tpin, accno)
 
     # Simulate authentication
@@ -103,9 +103,9 @@ if __name__ == "__main__":
     input_accno = input("Enter your account number: ")
 
     if user_instance.authenticate(input_name, input_password, input_tpin, input_accno):
-        # If authentication is successful, proceed with account operations
+       
         account_instance = Account(name, accno)
-        budget_instance = Budget(daily_limit=100000)  # Initialize daily budget limit
+        budget_instance = Budget(daily_limit=100000)  
 
         while True:
             print("\nChoose operation:")
@@ -133,6 +133,5 @@ if __name__ == "__main__":
             else:
                 print("Invalid choice. Please enter 1, 2, 3, 4, or 5.")
 
-        # Generate and print financial report after exiting the loop
         report = generate_financial_report(user_instance, account_instance, budget_instance)
         print(report)
